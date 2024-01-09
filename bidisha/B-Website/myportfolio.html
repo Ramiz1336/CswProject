@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <style>
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 10px 16px;
+      margin: 15px 0;
+      display: inline-block;
+      border: 3px solid blue;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 100%;
+      background-color: orange;
+      color: brown;
+      padding: 12px 16px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: green;
+    }
+
+    div {
+      border-radius: 3px;
+      background-color: aquamarine;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="myportfolio.html"><img src="B-logo.png" alt="B-Logo"
+            style="height: 8vh; width: 8vw; border-radius: 50%; border: 2px solid white;"></a></li>
+      <li><a href="#home" style="margin-left: 26vw;">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <!-- Welcome Animation -->
+
+
+    <div class="container">
+      <h2 class="title">
+        <span class="title-word title-word-1">Welcome</span>
+        <span class="title-word title-word-2">To</span>
+        <span class="title-word title-word-3">My</span>
+        <span class="title-word title-word-4">Website</span>
+      </h2>
+    </div>
+
+    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 22px;">Hello everyone my name is <b style="font-size: 28px;">BIDISHA
+        PANIGRAHI</b>
+      and this my Personal portfolio Website</p>
+    <img src="myphoto.jpeg" alt="myPhoto" height="500" width="600">
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am from Balasore, Odisha,India.I have completed my High school from Kendriya Vidyalaya,Balasore. Curently
+      pursuing my <b>B.Tech.</b> from<b> Institute of Technical Education and Research(ITER)</b>which comes under <em><b>Siksha 'O' Anusandhan University</em></b> in <b>Bhubaneshwar,Odisha</b>.</p>
+    <h3>I have learned languages like</h3>
+    <ul>
+      <li>Java</li>
+      <li>C</li>
+      <li>C++</li>
+    </ul>
+    <h3>I m working on my web develpoment skills using </h3>
+    <ol>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>jQuery</li>
+    </ol>
+    <!-- Add your projects here -->
+
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>Build a one-page resume</li>
+      <li>Make a to-do list.</li>
+      <li>Create a WordPress site</li>
+      <li>Make an e-commerce landing page.</li>
+    </ul>
+
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 style="font-family:Arial, Helvetica, sans-serif">Contact Me</h2>
+    <address>New Balasore Colony, Sahadevkhunta, Balasore. Pin:756003</address>
+    <p>Phone: <b>9999900000</b></p>
+    <p>Email: <b>panigrahibidisha@gmail.com</b></p>
+    <div>
+      <form action="#">
+        <label for="email">Email ID</label>
+        <input type="text" id="email" name="your email" placeholder="Enter Your Email" class="input">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter Your Name" class="input">
+        <label for="topic">Topic</label>
+        <input type="text" height="50vh" id="topic" name="topic" placeholder="Enter Topic" class="input">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    </form>
+  </section>
+
+  <footer id="foot">
+    &copy;2023- All Rights are reserved.
+  </footer>
+
+</body>
+
+</html>
