@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cg-team-page</title>
+    <link rel="stylesheet" href="styles.css">
+     <script src="https://unpkg.com/phosphor-icons"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo"><p>Our Team</p></div>
+        <div class="btn"><p>Main Page</p></div>
+    </nav>
+    <div class="container">
+        <div class="overlay">
+            <div class="t-1 marquee-wrapper">
+                <h1>Aniket Aniket Aniket Aniket Aniket Aniket Aniket Aniket</h1>
+            </div>
+            <div class="t-2 marquee-wrapper">
+                <h1>Bibhujit Bibhujit  Bibhujit Bibhujit Bibhujit Bibhujit</h1>
+            </div>
+            <div class="t-3 marquee-wrapper">
+                <h1>Bidisha Bidisha Bidisha Bidisha Bidisha </h1>
+            </div>
+            <div class="t-4 marquee-wrapper">
+                <h1>Aditya Aditya Aditya Aditya Aditya Aditya</h1>
+            </div>
+            <div class="t-5 marquee-wrapper">
+                <h1>Ramiz Ramiz Ramiz Ramiz Ramiz Ramiz Ramiz Ramiz</h1>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-images">
+                <div class="img" id="t-1">
+                    <a href="aniket\index.html">
+                     <img src="assets/Aniket.jpg" alt=""></a>
+                </div>
+                <div class="img" id="t-2">
+                    <a href="Project 1\index.html">
+                    <img src="assets\bibhujit.jpg" alt=""></a>
+                </div>
+                <div class="img" id="t-3">
+                    <a href="bidisha\B-Website\myportfolio.html">
+                    <img src="assets\Bidisha.jpg" alt=""></a>
+                </div>
+                <div class="img" id="t-4">
+                    <a href="Aditya's portfolio 6153\index.html">
+                    <img src="assets\Aditya.jpg" alt=""></a>
+                </div>
+                <div class="img" id="t-5">
+                    <a href="Ramiz2\index.html">
+                    <img src="assets\Rami.jpg" alt=""></a>
+                </div>
+            </div>
+
+            <div class="info">
+                <p class="name">Aniket Panigrahi</p>
+                <p class="role">Portfolio</p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="cursor">
+        <i class="ph-light ph-arrow-left"></i>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const team=[
+            {name: "Aniket Panigrahi", role:"Creative Director"},
+            {name: "Bibhujit Panigrahi", role:"Brand Strategist"},
+            {name: "Bidisha Panigrahi", role:"Chief Inovator"},
+            {name: "Aditya Panigrahi", role:"Chief Coder"},
+            {name: "SK Ramiz Raja", role:"Lead Designer"}
+        ]
+
+
+        const cursor= document.querySelector('.cursor');
+        const cursorIcon= document.querySelector('i');
+
+        const cursorWidth=cursor.offsetWidth/2;
+        const cursorHeight=cursor.offsetHeight/2;
+
+        let currentSlide=1;
+        const totalSlides=5;
+
+        const updateCursorClass=(xPosition) =>{
+            const halfPageWidth = window.innerWidth/2;
+            if(xPosition > halfPageWidth){
+                if(currentSlide < totalSlides){
+                    cursorIcon.classList.remove('ph-arrow-left');
+                    cursorIcon.classList.add('ph-arrow-right');
+                    cursor.style.display='none';
+                }else{
+                    cursor.style.display='none';
+                }                
+            }else {
+               if(currentSlide > 1){
+                    cursorIcon.classList.remove('ph-arrow-right');
+                    cursorIcon.classList.add('ph-arrow-left');
+                    cursor.style.display='none';
+                }else{
+                    cursor.style.display='none';
+                } 
+            }
+
+        }
+
+
+        document.addEventListener('mousemove', (e) =>
+        {
+            gsap.to(cursor,{
+                x: e.clientX= cursorWidth,
+                y: e.clientY = cursorHeight,
+                duration:1,
+                ease: "power3.out"
+            });
+
+            updateCursorClass(e.clientX);
+        });
+
+
+        const updateInfo=(slideNumber) =>{
+            const member=team[slideNumber-1];
+            document.querySelector('.info .name').textContent=member.name;
+            document.querySelector('.info .role').textContent=member.role;
+        }
+
+
+
+
+        const animateslide=(slideNumber, reveal)=>{
+            const marquee =document.querySelector(`.t-${slideNumber}.marquee-wrapper`);
+            const img=document.getElementById(`t-${slideNumber}`);
+            const clipPathValue = reveal ? 'polygon(0% 100%, 100% 100% ,100% 0%, 0% 0%)' : 'polygon(0% 100%, 100% 100% ,100% 100%, 0% 100%)';
+
+            gsap.to(marquee , {clipPath:clipPathValue, duration: 1, ease: "power4.out", delay:0.3});
+
+            gsap.to(img, {clipPath:clipPathValue, duration: 1, ease:"power4.out"});
+
+        };
+
+
+        updateInfo(currentSlide);
+
+        const handleRightClick= () =>{
+            if(currentSlide < totalSlides) {
+                animateslide(currentSlide+1, true);
+                currentSlide++;
+                updateInfo(currentSlide);
+            }
+        }
+
+        const handleLeftClick = () =>{
+            if(currentSlide >1) {
+                animateslide(currentSlide, false);
+                currentSlide--;
+                updateInfo(currentSlide);
+            }
+        }
+        
+        document.addEventListener('click', (e) =>{
+            const halfPageWidth=window.innerWidth/2;
+            if(e.clientX > halfPageWidth){
+                handleRightClick();
+            }else{
+                handleLeftClick();
+            }
+        })
+        
+        </script>
+
+
+
+
+    
+</body>
+</html>
